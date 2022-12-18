@@ -1,0 +1,61 @@
+<div id="slider">
+  <img src="imagen1.jpg" alt="Imagen 1" class="slider-image" id="image1">
+  <img src="imagen2.jpg" alt="Imagen 2" class="slider-image" id="image2">
+  <img src="imagen3.jpg" alt="Imagen 3" class="slider-image" id="image3">
+</div>
+
+<button id="prev-button">Anterior</button>
+<button id="next-button">Siguiente</button>
+
+<style>
+  .slider-image {
+    display: none;
+  }
+
+  .slider-image.active {
+    display: block;
+  }
+</style>
+
+<script>
+  // Array con las imágenes del slider
+  const images = [
+    document.getElementById('image1'),
+    document.getElementById('image2'),
+    document.getElementById('image3'),
+  ];
+
+  // Índice de la imagen actual
+  let currentIndex = 0;
+
+  // Función para mostrar la siguiente imagen
+  function nextImage() {
+    // Oculta la imagen actual
+    images[currentIndex].classList.remove('active');
+
+    // Incrementa el índice
+    currentIndex = (currentIndex + 1) % images.length;
+
+    // Muestra la siguiente imagen
+    images[currentIndex].classList.add('active');
+  }
+
+  // Función para mostrar la imagen anterior
+  function prevImage() {
+    // Oculta la imagen actual
+    images[currentIndex].classList.remove('active');
+
+    // Decrementa el índice
+    currentIndex = (currentIndex + images.length - 1) % images.length;
+
+    // Muestra la imagen anterior
+    images[currentIndex].classList.add('active');
+  }
+
+  // Ciclo para mostrar las imágenes cada 2 segundos
+  setInterval(nextImage, 2000);
+
+  // Eventos de clic para los botones de navegación
+  document.getElementById('prev-button').addEventListener('click', prevImage);
+  document.getElementById('next-button').addEventListener('click', nextImage);
+</script>
