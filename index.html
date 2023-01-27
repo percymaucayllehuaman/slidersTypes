@@ -6,7 +6,11 @@
 
 <!-- gallery -->
 <br><br>
-<section></section>
+<section>
+  <img src="imagen1.jpg" alt="Imagen 1" class="slider-image" id="image1">
+  <img src="imagen2.jpg" alt="Imagen 2" class="slider-image" id="image2">
+  <img src="imagen3.jpg" alt="Imagen 3" class="slider-image" id="image3">
+</section>
 
 <button id="prev-button">Anterior</button>
 <button id="next-button">Siguiente</button>
@@ -19,6 +23,28 @@
   .slider-image.active {
     display: block;
   }
+
+
+  /*section gallery*/
+  section{
+    display: flex;
+    height: 400px;
+    width: 600px;
+  }
+  section img{
+    width: 0;
+    flex-grow: 1;
+    object-fit: cover;
+    opacity: .8;
+    transition: .5s ease;
+  }
+  section img:hober{
+    cursor: crosshair;
+    width: 300px;
+    opacity: 1;
+    filter: contrast(120%);
+  }
+
 </style>
 
 <script>
